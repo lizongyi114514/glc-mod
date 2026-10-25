@@ -16,5 +16,7 @@
   "item.glc.atro_spawn_egg": "Atrocitus Spawn Egg",
   "item.glc.walker_spawn_egg": "Saint Walker Spawn Egg",
   "item.glc.larfleeze_spawn_egg": "Larfleeze Spawn Egg",
-  "item.glc.trooper_spawn_egg": "Green Lantern Trooper Spawn Egg"
+  "item.glc.trooper_spawn_egg": "Green Lantern Trooper Spawn Egg",
+  "item.glc.lantern_scout_spawn_egg": "Green Lantern Scout Spawn Egg",
+  "entity.glc.lantern_scout": "Green Lantern Scout"
 }
