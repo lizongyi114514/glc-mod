@@ -1,0 +1,23 @@
+{
+  "cast": {
+    "sounds": [
+      {
+        "name": "glc:cast"
+      }
+    ]
+  },
+  "summon": {
+    "sounds": [
+      {
+        "name": "glc:summon"
+      }
+    ]
+  },
+  "hit": {
+    "sounds": [
+      {
+        "name": "glc:hit"
+      }
+    ]
+  }
+}
