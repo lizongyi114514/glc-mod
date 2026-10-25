@@ -97,7 +97,16 @@ public class LanternScoutEntity extends Monster implements GeoEntity, RangedAtta
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 16.0F));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false,
+                entity -> isHostileCorps() && entity instanceof Player));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false,
+                entity -> !isHostileCorps() && entity != this));
+    }
+
+    /** 黄/红/橙灯主动敌视玩家；绿/蓝灯只打怪物，不主动打玩家。 */
+    public boolean isHostileCorps() {
+        String value = variant();
+        return "yellow".equals(value) || "red".equals(value) || "orange".equals(value);
     }
 
     @Override
