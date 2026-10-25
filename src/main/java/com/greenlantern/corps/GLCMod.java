@@ -5,6 +5,7 @@ import com.greenlantern.corps.registry.ModBlocks;
 import com.greenlantern.corps.registry.ModCreativeTabs;
 import com.greenlantern.corps.registry.ModEntities;
 import com.greenlantern.corps.registry.ModItems;
+import com.greenlantern.corps.registry.ModSounds;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.common.Mod;
@@ -23,6 +24,7 @@ public class GLCMod {
         ModItems.register(modBus);
         ModBlocks.register(modBus);
         ModEntities.register(modBus);
+        ModSounds.register(modBus);
         modBus.addListener(ModEntities::onAttributes);
         ModCreativeTabs.register(modBus);
         Network.register();
