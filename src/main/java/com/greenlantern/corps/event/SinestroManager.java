@@ -136,7 +136,7 @@ public final class SinestroManager {
     }
 
     private static void cast(ServerLevel level, LivingEntity boss) {
-        ServerPlayer target = level.getNearestPlayer(boss, 32.0D);
+        net.minecraft.world.entity.player.Player target = level.getNearestPlayer(boss, 32.0D);
         if (target == null) {
             return;
         }
