@@ -16,5 +16,7 @@
   "item.glc.atro_spawn_egg": "阿托希塔斯刷怪蛋",
   "item.glc.walker_spawn_egg": "圣行者刷怪蛋",
   "item.glc.larfleeze_spawn_egg": "拉弗利兹刷怪蛋",
-  "item.glc.trooper_spawn_egg": "绿灯巡逻兵刷怪蛋"
+  "item.glc.trooper_spawn_egg": "绿灯巡逻兵刷怪蛋",
+  "item.glc.lantern_scout_spawn_egg": "绿灯巡逻兵刷怪蛋",
+  "entity.glc.lantern_scout": "绿灯巡逻兵"
 }
