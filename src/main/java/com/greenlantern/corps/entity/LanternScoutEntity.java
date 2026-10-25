@@ -28,8 +28,8 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  * 普通绿灯巡逻兵：真实生物 + GeckoLib 骨骼模型（素材来自 Legends Superheroes 的 hal_corps）。
  */
 public class LanternScoutEntity extends Monster implements GeoEntity {
-    private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
-    private static final RawAnimation WALK = RawAnimation.begin().thenLoop("walk");
+    private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("float");
+    private static final RawAnimation WALK = RawAnimation.begin().thenLoop("flight");
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
