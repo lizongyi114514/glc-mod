@@ -16,6 +16,8 @@ jobs:
           java-version: '17'
 
       - uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.8
 
       # 去掉本地代理配置（CI 不需要，也不该指向 127.0.0.1）
       - name: Strip local proxy settings
