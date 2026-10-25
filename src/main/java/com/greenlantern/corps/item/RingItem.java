@@ -22,17 +22,52 @@ import net.minecraft.core.BlockPos;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.Consumer;
 
-public class RingItem extends Item {
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.util.GeckoLibUtil;
+
+public class RingItem extends Item implements GeoItem {
     public static final String TAG_CHARGE = "Charge";
     public static final String TAG_MODE = "Mode";
     public static final int MAX_CHARGE = 100;
 
     private final CorpsColor corps;
+    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
 
     public RingItem(CorpsColor corps, Properties properties) {
         super(properties);
         this.corps = corps;
+    }
+
+    @Override
+    public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) {
+        consumer.accept(new GeoRenderProvider() {
+            private com.greenlantern.corps.client.RingRenderer renderer;
+
+            @Override
+            public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getGeoItemRenderer() {
+                if (this.renderer == null) {
+                    this.renderer = new com.greenlantern.corps.client.RingRenderer();
+                }
+                return this.renderer;
+            }
+        });
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "ring", 0,
+                state -> state.setAndContinue(RawAnimation.begin().thenLoop("regular"))));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return animationCache;
     }
 
     public CorpsColor corps() {
