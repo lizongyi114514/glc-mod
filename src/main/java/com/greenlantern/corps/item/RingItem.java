@@ -52,7 +52,7 @@ public class RingItem extends Item {
     }
 
     public static void setMode(ItemStack stack, int value) {
-        stack.getOrCreateTag().putInt(TAG_MODE, Mth.clamp(value, 0, 5));
+        stack.getOrCreateTag().putInt(TAG_MODE, Mth.clamp(value, 0, 10));
     }
 
     @Override
