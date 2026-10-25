@@ -28,20 +28,18 @@ public final class ModItems {
             RINGS.put(color, ITEMS.register("ring_" + color.id(),
                     () -> new RingItem(color, new Item.Properties().stacksTo(1).rarity(Rarity.RARE))));
         }
-        egg("hal", "minecraft:phantom", "哈尔·乔丹", "glc_duel_hal", ChatFormatting.GREEN);
-        egg("john", "minecraft:vindicator", "约翰·斯图尔特", "glc_duel_john", ChatFormatting.GREEN);
-        egg("kyle", "minecraft:phantom", "凯尔·雷纳", "glc_duel_kyle", ChatFormatting.GREEN);
-        egg("guy", "minecraft:vindicator", "盖·加德纳", "glc_duel_guy", ChatFormatting.GREEN);
-        egg("sinestro", "minecraft:vindicator", "塞尼斯托", "glc_duel_sinestro", ChatFormatting.YELLOW);
-        egg("atro", "minecraft:ravager", "阿托希塔斯", "glc_duel_atro", ChatFormatting.RED);
-        egg("walker", "minecraft:evoker", "圣行者", "glc_duel_walker", ChatFormatting.AQUA);
-        egg("larfleeze", "minecraft:pillager", "拉弗利兹", "glc_duel_larfleeze", ChatFormatting.GOLD);
-        egg("trooper", "minecraft:vindicator", "绿灯巡逻兵", "glc_trooper", ChatFormatting.GREEN);
+        egg("hal", "green", "哈尔·乔丹", "glc_duel_hal", ChatFormatting.GREEN);
+        egg("john", "green", "约翰·斯图尔特", "glc_duel_john", ChatFormatting.GREEN);
+        egg("kyle", "green", "凯尔·雷纳", "glc_duel_kyle", ChatFormatting.GREEN);
+        egg("guy", "green", "盖·加德纳", "glc_duel_guy", ChatFormatting.GREEN);
+        egg("sinestro", "yellow", "塞尼斯托", "glc_duel_sinestro", ChatFormatting.YELLOW);
+        egg("atro", "red", "阿托希塔斯", "glc_duel_atro", ChatFormatting.RED);
+        egg("walker", "blue", "圣行者", "glc_duel_walker", ChatFormatting.AQUA);
+        egg("larfleeze", "orange", "拉弗利兹", "glc_duel_larfleeze", ChatFormatting.GOLD);
+        egg("trooper", "green", "绿灯巡逻兵", "glc_trooper", ChatFormatting.GREEN);
     }
 
-    public static final RegistryObject<Item> SCOUT_SPAWN_EGG = ITEMS.register("lantern_scout_spawn_egg",
-            () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.LANTERN_SCOUT,
-                    0x00A651, 0x0A2A0A, new Item.Properties()));
+    public static final RegistryObject<Item> SCOUT_SPAWN_EGG = EGGS.get("trooper");
 
     private ModItems() {
     }
