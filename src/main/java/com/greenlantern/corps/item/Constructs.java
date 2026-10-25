@@ -1,4 +1,4 @@
-﻿package com.greenlantern.corps.item;
+package com.greenlantern.corps.item;
 
 import com.greenlantern.corps.CorpsColor;
 import com.greenlantern.corps.network.Network;
