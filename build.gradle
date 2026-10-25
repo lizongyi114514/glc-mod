@@ -1,9 +1,5 @@
 buildscript {
     repositories {
-        maven {
-            url = uri('http://127.0.0.1:8089/')
-            allowInsecureProtocol = true
-        }
         maven { url = 'https://maven.minecraftforge.net/' }
         mavenCentral()
     }
@@ -53,10 +49,6 @@ minecraft {
 }
 
 repositories {
-    maven {
-        url = uri('http://127.0.0.1:8089/')
-        allowInsecureProtocol = true
-    }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.theillusivec4.top/' }
     mavenCentral()
