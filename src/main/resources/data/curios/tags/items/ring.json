@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "glc:ring_green",
+    "glc:ring_yellow",
+    "glc:ring_red",
+    "glc:ring_blue",
+    "glc:ring_indigo",
+    "glc:ring_violet",
+    "glc:ring_orange"
+  ]
+}

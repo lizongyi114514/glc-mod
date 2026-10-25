@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "glc:ring_green"
+    },
+    "title": {
+      "text": "绿灯军团",
+      "color": "green"
+    },
+    "description": {
+      "text": "以意志为光。",
+      "color": "gray"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/dark_prismarine.png"
+  },
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

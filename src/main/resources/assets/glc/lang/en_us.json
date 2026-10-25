@@ -1,0 +1,20 @@
+{
+  "itemGroup.glc": "Green Lantern Corps",
+  "item.glc.ring_green": "Green Power Ring",
+  "item.glc.ring_yellow": "Yellow Power Ring",
+  "item.glc.ring_red": "Red Power Ring",
+  "item.glc.ring_blue": "Blue Power Ring",
+  "item.glc.ring_indigo": "Indigo Power Ring",
+  "item.glc.ring_violet": "Violet Power Ring",
+  "item.glc.ring_orange": "Orange Power Ring",
+  "block.glc.battery": "Green Lantern Battery",
+  "item.glc.hal_spawn_egg": "Hal Jordan Spawn Egg",
+  "item.glc.john_spawn_egg": "John Stewart Spawn Egg",
+  "item.glc.kyle_spawn_egg": "Kyle Rayner Spawn Egg",
+  "item.glc.guy_spawn_egg": "Guy Gardner Spawn Egg",
+  "item.glc.sinestro_spawn_egg": "Sinestro Spawn Egg",
+  "item.glc.atro_spawn_egg": "Atrocitus Spawn Egg",
+  "item.glc.walker_spawn_egg": "Saint Walker Spawn Egg",
+  "item.glc.larfleeze_spawn_egg": "Larfleeze Spawn Egg",
+  "item.glc.trooper_spawn_egg": "Green Lantern Trooper Spawn Egg"
+}

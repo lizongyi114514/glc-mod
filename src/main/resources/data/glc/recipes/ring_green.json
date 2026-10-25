@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    "DBD",
+    " D "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:green_dye"
+    },
+    "B": {
+      "item": "glc:battery"
+    }
+  },
+  "result": {
+    "item": "glc:ring_green"
+  }
+}

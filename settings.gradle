@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        maven {
+            url = uri('http://127.0.0.1:8089/')
+            allowInsecureProtocol = true
+        }
+        gradlePluginPortal()
+        maven { url = 'https://maven.minecraftforge.net/' }
+    }
+}
+
+rootProject.name = 'glc'

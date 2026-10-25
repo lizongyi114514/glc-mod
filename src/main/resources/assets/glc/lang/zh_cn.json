@@ -1,0 +1,20 @@
+{
+  "itemGroup.glc": "绿灯军团",
+  "item.glc.ring_green": "绿灯戒指",
+  "item.glc.ring_yellow": "黄灯戒指",
+  "item.glc.ring_red": "红灯戒指",
+  "item.glc.ring_blue": "蓝灯戒指",
+  "item.glc.ring_indigo": "青灯戒指",
+  "item.glc.ring_violet": "紫灯戒指",
+  "item.glc.ring_orange": "橙灯戒指",
+  "block.glc.battery": "绿灯电池",
+  "item.glc.hal_spawn_egg": "哈尔·乔丹刷怪蛋",
+  "item.glc.john_spawn_egg": "约翰·斯图尔特刷怪蛋",
+  "item.glc.kyle_spawn_egg": "凯尔·雷纳刷怪蛋",
+  "item.glc.guy_spawn_egg": "盖·加德纳刷怪蛋",
+  "item.glc.sinestro_spawn_egg": "塞尼斯托刷怪蛋",
+  "item.glc.atro_spawn_egg": "阿托希塔斯刷怪蛋",
+  "item.glc.walker_spawn_egg": "圣行者刷怪蛋",
+  "item.glc.larfleeze_spawn_egg": "拉弗利兹刷怪蛋",
+  "item.glc.trooper_spawn_egg": "绿灯巡逻兵刷怪蛋"
+}
