@@ -53,6 +53,9 @@ public final class Constructs {
         Will.add(player, -construct.will());
         player.getCooldowns().addCooldown(ring.getItem(), construct.cooldown());
         Network.syncWill(player);
+        player.serverLevel().playSound(null, player.blockPosition(),
+                com.greenlantern.corps.registry.ModSounds.CAST.get(),
+                net.minecraft.sounds.SoundSource.PLAYERS, 0.9F, 1.0F);
 
         apply(player, corps, construct);
         GLCUtil.award(player, "first_construct");
