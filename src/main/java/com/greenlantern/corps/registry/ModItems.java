@@ -39,6 +39,10 @@ public final class ModItems {
         egg("trooper", "minecraft:vindicator", "绿灯巡逻兵", "glc_trooper", ChatFormatting.GREEN);
     }
 
+    public static final RegistryObject<Item> SCOUT_SPAWN_EGG = ITEMS.register("lantern_scout_spawn_egg",
+            () -> new net.minecraftforge.common.ForgeSpawnEggItem(ModEntities.LANTERN_SCOUT,
+                    0x00A651, 0x0A2A0A, new Item.Properties()));
+
     private ModItems() {
     }
 
