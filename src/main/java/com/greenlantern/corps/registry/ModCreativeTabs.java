@@ -24,7 +24,6 @@ public final class ModCreativeTabs {
                         }
                         output.accept(ModBlocks.BATTERY_ITEM.get());
                         ModItems.EGGS.values().forEach(egg -> output.accept(egg.get()));
-                        output.accept(ModItems.SCOUT_SPAWN_EGG.get());
                     })
                     .build());
 
