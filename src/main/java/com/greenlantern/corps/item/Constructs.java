@@ -1,4 +1,4 @@
-package com.greenlantern.corps.item;
+﻿package com.greenlantern.corps.item;
 
 import com.greenlantern.corps.CorpsColor;
 import com.greenlantern.corps.network.Network;
@@ -128,6 +128,66 @@ public final class Constructs {
                 }
                 GLCUtil.sound(level, player.position(), SoundEvents.ENDER_PEARL_THROW, 0.8F, 0.7F);
                 GLCUtil.msg(player, "构念 · 抓取", ChatFormatting.GREEN, true);
+            }
+            case SCAN -> {
+                List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class,
+                        player.getBoundingBox().inflate(32.0D), entity -> entity != player && entity.isAlive());
+                for (LivingEntity target : targets) {
+                    target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 200, 0));
+                }
+                GLCUtil.sphere(level, player.position().add(0, 1.0D, 0), 2.0D, corps, 3);
+                GLCUtil.sound(level, player.position(), SoundEvents.BEACON_ACTIVATE, 0.8F, 1.6F);
+                GLCUtil.msg(player, "构念 · 扫描：标记 " + targets.size() + " 个目标", ChatFormatting.GREEN, true);
+            }
+            case CLOAK -> {
+                player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 200, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0));
+                GLCUtil.dust(level, pos, corps, 24, 0.5);
+                GLCUtil.sound(level, player.position(), SoundEvents.AMETHYST_BLOCK_CHIME, 0.9F, 1.4F);
+                GLCUtil.msg(player, "构念 · 隐身", ChatFormatting.GREEN, true);
+            }
+            case CHAIN -> {
+                LivingEntity target = level.getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(12.0D),
+                                entity -> entity != player && entity.isAlive() && !(entity instanceof Player))
+                        .stream()
+                        .min(Comparator.comparingDouble(entity -> entity.distanceToSqr(player)))
+                        .orElse(null);
+                if (target != null) {
+                    target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 3));
+                    target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 200, 0));
+                    GLCUtil.line(level, player.getEyePosition(), target.position().add(0, 1, 0), corps, 24);
+                    GLCUtil.dust(level, target.position().add(0, 1, 0), corps, 20, 0.35);
+                }
+                GLCUtil.sound(level, player.position(), SoundEvents.CHAIN_PLACE, 1.0F, 0.8F);
+                GLCUtil.msg(player, "构念 · 锁链", ChatFormatting.GREEN, true);
+            }
+            case GATLING -> {
+                for (int volley = 0; volley < 3; volley++) {
+                    List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class,
+                            player.getBoundingBox().inflate(8.0D), entity -> entity != player && entity.isAlive() && !(entity instanceof Player));
+                    for (LivingEntity target : targets) {
+                        target.hurt(player.damageSources().playerAttack(player), 2.0F);
+                    }
+                    GLCUtil.dust(level, player.getEyePosition().add(player.getLookAngle().scale(3.0D)), corps, 12, 0.3);
+                }
+                GLCUtil.sound(level, player.position(), SoundEvents.PLAYER_ATTACK_SWEEP, 1.0F, 1.4F);
+                GLCUtil.msg(player, "构念 · 加特林", ChatFormatting.GREEN, true);
+            }
+            case FLIGHT -> {
+                player.getAbilities().mayfly = true;
+                player.onUpdateAbilities();
+                if (player.getServer() != null) {
+                    player.getServer().tell(new net.minecraft.server.TickTask(400, () -> {
+                        if (!player.isCreative() && !player.isSpectator()) {
+                            player.getAbilities().mayfly = false;
+                            player.getAbilities().flying = false;
+                            player.onUpdateAbilities();
+                        }
+                    }));
+                }
+                GLCUtil.sphere(level, player.position().add(0, 1.0D, 0), 1.4D, corps, 4);
+                GLCUtil.sound(level, player.position(), SoundEvents.ELYTRA_FLYING, 0.9F, 1.2F);
+                GLCUtil.msg(player, "构念 · 飞行：20 秒", ChatFormatting.GREEN, true);
             }
             default -> {
             }
