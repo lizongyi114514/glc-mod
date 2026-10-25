@@ -12,7 +12,7 @@ public class LanternScoutModel extends GeoModel<LanternScoutEntity> {
 
     @Override
     public ResourceLocation getTextureResource(LanternScoutEntity animatable) {
-        return new ResourceLocation("glc", "textures/entity/hal_corps.png");
+        return new ResourceLocation("glc", "textures/entity/hal_corps_" + animatable.variant() + ".png");
     }
 
     @Override
