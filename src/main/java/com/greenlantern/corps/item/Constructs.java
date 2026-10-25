@@ -34,13 +34,16 @@ public final class Constructs {
             GLCUtil.sound(player.level(), player.position(), SoundEvents.NOTE_BLOCK_BASS.get(), 0.4F, 0.8F);
             return;
         }
-        if (Will.get(player) < construct.will()) {
-            GLCUtil.msg(player, "意志不足。戒指不会回应一个动摇的人。", ChatFormatting.RED, true);
+        boolean creative = player.isCreative();
+        if (!creative && Will.get(player) < construct.will()) {
+            GLCUtil.msg(player, "意志不足（需要 " + construct.will() + "）。戒指不会回应一个动摇的人。",
+                    ChatFormatting.RED, true);
             GLCUtil.sound(player.level(), player.position(), SoundEvents.NOTE_BLOCK_BASS.get(), 0.5F, 0.6F);
             return;
         }
-        if (RingItem.getCharge(ring) < construct.charge()) {
-            GLCUtil.msg(player, "充能耗尽。回电池旁复诵誓词。", ChatFormatting.RED, true);
+        if (!creative && RingItem.getCharge(ring) < construct.charge()) {
+            GLCUtil.msg(player, "充能耗尽（需要 " + construct.charge() + "）。回电池旁复诵誓词。",
+                    ChatFormatting.RED, true);
             GLCUtil.sound(player.level(), player.position(), SoundEvents.BEACON_DEACTIVATE, 0.5F, 0.7F);
             return;
         }
@@ -49,8 +52,10 @@ public final class Constructs {
             return;
         }
 
-        RingItem.setCharge(ring, RingItem.getCharge(ring) - construct.charge());
-        Will.add(player, -construct.will());
+        if (!creative) {
+            RingItem.setCharge(ring, RingItem.getCharge(ring) - construct.charge());
+            Will.add(player, -construct.will());
+        }
         player.getCooldowns().addCooldown(ring.getItem(), construct.cooldown());
         Network.syncWill(player);
         player.serverLevel().playSound(null, player.blockPosition(),
