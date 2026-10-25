@@ -45,11 +45,11 @@ public final class Network {
     }
 
     public static void openMenu(net.minecraft.server.level.ServerPlayer player) {
-        CHANNEL.send(new OpenMenuPacket(), PacketDistributor.PLAYER.with(() -> player));
+        CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new OpenMenuPacket());
     }
 
     public static void syncWill(net.minecraft.server.level.ServerPlayer player) {
-        CHANNEL.send(new SyncWillPacket(com.greenlantern.corps.util.Will.get(player)),
-                PacketDistributor.PLAYER.with(() -> player));
+        CHANNEL.send(PacketDistributor.PLAYER.with(() -> player),
+                new SyncWillPacket(com.greenlantern.corps.util.Will.get(player)));
     }
 }
