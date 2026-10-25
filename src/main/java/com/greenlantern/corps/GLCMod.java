@@ -8,10 +8,16 @@ import com.greenlantern.corps.registry.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(GLCMod.MODID)
 public class GLCMod {
     public static final String MODID = "glc";
+
+    /** Forge 需要无参构造函数。 */
+    public GLCMod() {
+        this(FMLJavaModLoadingContext.get().getModEventBus(), null);
+    }
 
     public GLCMod(IEventBus modBus, ModContainer container) {
         ModItems.register(modBus);
